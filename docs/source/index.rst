@@ -19,7 +19,7 @@ Contents
     :caption: User documentation
     :hidden:
 
-   user
+    user
 
 .. toctree::
     :maxdepth: 3
