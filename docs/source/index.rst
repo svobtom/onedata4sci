@@ -14,6 +14,10 @@ Contents
 --------
 
 .. toctree::
-   :numbered:
-   
-   fs2od
+    :maxdepth: 3
+    :numbered:
+    :caption: FS2OD
+    :hidden:
+
+    oneprovider
+    fs2od
