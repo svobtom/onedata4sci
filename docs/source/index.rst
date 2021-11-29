@@ -14,9 +14,6 @@ Contents
 --------
 
 .. toctree::
-
-   Introduction
-   User documentation
-   Lab documentation
-      Oneprovider installation
-      fs2od
+   :numbered:
+   
+   fs2od

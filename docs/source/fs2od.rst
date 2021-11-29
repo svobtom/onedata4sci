@@ -2,6 +2,9 @@ fs2od
 =====
 Software fs2od (filesystem to Onedata) is separate part of the system packed into a Docker container, which simplified interaction with Onedata system. It can take list of directories which should by cloudified and periodically check them and import them into Onedata system. Each subdirectory of specified directory represents separate dataset. For each such dataset will be created space. It can be run on the same node as Oneprovider. It must have access to the directories which should be loaded to Onedata 
 
+.. autosummary::
+   :toctree: generated
+
 Downloading of software
 For running the software, you need following to two files:
 •	docker-compose.yaml – Docker compose file containing recipe to downloading and run container with fs2od application. Download at:
@@ -29,7 +32,8 @@ Fig. – Create Onezone token
 For all tokens you can also set many other caveats – restrictions to token usage. For security reasons is in production recommended to restrict usage of tokens at least by IP access list to make token usable only from given set of IP address. If you limit usage by IP address you must include machine, where fs2od running to IP whitelist. 
  
 Fig. – All caveats (restrictions) which token management support
-4.2.3	Application configuration
+
+Application configuration
 Most of application configuration can be set in file config.yaml. Attributes in config file are accompanied with self-standing documentation. 
 Most important settings in config file:
 •	watchedDirectories - Set directories which should be monitored.   

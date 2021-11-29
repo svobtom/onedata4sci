@@ -14,7 +14,8 @@ OS	Any Docker compatible	Any Docker compatible
 Tab. – Requirements of Oneprovider
 (source: https://onedata.org/#/home/documentation/stable/doc/system_requirements.html)
 
-4.1.2	Prepare environment for containers running
+Prepare environment for containers running
+------------------------------------------
 At first is needed to install Docker subsystem. Installation steps depends on your operating system. Installation instruction you can find at official documentation at https://docs.docker.com/get-docker
 After installation add your user to group which has access to Docker. 
 # groupadd command may not been needed
@@ -22,7 +23,8 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 Next you need to get tool Docker compose. Steps for your architecture are described at https://docs.docker.com/compose/install
 
-4.1.3	Prepare environment for Oneprovider
+Prepare environment for Oneprovider
+-----------------------------------
 Following script-like text was created from Onedata documentation. Go through the script command by command and execute commands that you see are appropriate for your case. 
 ## Increase maximum number of opened files
 # In order to install Oneprovider service on one of the supported operating systems, first make sure that the maximum limit of opened files is sufficient (preferably 63536, but below /proc/sys/fs/file-max). The limit can be checked using:
