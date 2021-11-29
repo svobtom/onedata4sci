@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'fs2od'
+copyright = '2021, Masaryk University'
+author = 'Tomas Svoboda'
 
 release = '0.1'
 version = '0.1.0'
