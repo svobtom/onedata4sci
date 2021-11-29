@@ -1,5 +1,5 @@
-CryoEM data cloudification documentation
-===================================
+CryoEM data cloudification
+==========================
 
 **CryoEM data cloudification** system should provide easy way to make data produced by Cryogenic electron microscopy available to scientist. It supports whole process beginning from store produced data from CryoEM device, its publishing according to required access policy and its archiving in permanent storage. 
 
@@ -19,4 +19,4 @@ Contents
    User documentation
    Lab documentation
       Oneprovider installation
-      Deploying fs2od
+      fs2od

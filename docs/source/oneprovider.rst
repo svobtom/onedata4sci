@@ -1,7 +1,9 @@
-4.1	DEPLOYMENT OF A NEW INSTANCE OF ONEPROVIDER
+Deployment of Oneprovider
+=========================
 There are several possibilities how to install and deploy Oneprovider service. All options you can find in documentation of Onedata. In this tutorial we describe deployment of Onedata service using Docker.
 
-4.1.1	Requirements
+Requirements
+------------
 Requirements to run Oneprovider are described in official documentation as shown in the table. We recommend use Optimal setting. In following text there is described One provider deployment for usage of up to 100 users, for more sophisticated deployment please see Onedata documentation (https://onedata.org/#/home/documentation/stable/doc/administering_onedata/oneprovider_tutorial.html). 
 Requirement	Minimum	Optimal 
 CPU	8 vCPU	16 vCPU
