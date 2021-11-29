@@ -16,8 +16,18 @@ Contents
 .. toctree::
     :maxdepth: 3
     :numbered:
-    :caption: FS2OD
+    :caption: User documentation
     :hidden:
 
+   user
+    
+
+.. toctree::
+    :maxdepth: 3
+    :numbered:
+    :caption: Lab documentation
+    :hidden:
+
+    overview
     oneprovider
     fs2od
