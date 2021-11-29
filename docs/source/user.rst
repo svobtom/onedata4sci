@@ -23,21 +23,17 @@ Further reading about Oneclient:
 https://onedata.org/#/home/documentation/stable/doc/using_onedata/oneclient.html
 
 ### Use in Infrastructure manager
------------------------------
-This chapter will describe how Scipion with a dataset can be run. 
 To be done...
 
 In this chapter are described method to access data stored in Onedata system. We describe in this documentation Onedata system managed by Onezone located at https://datahub.egi.eu, but it is applicable also on another Onezone instances. Method of sign in and propagation of groups can be different there. 
 
 ## Set up permissions in Onedata
 
-Add user to EGI Check-in group
+### Add user to EGI Check-in group
 Go to https://aai.egi.eu and log in with identity from your institution.
 Click on item Groups in the left menu and choose My Groups. You will see groups you are belong to. 
 At the top right bottom there is a link Manage groups. On this page you can add user to existing groups (provided you have appropriate access right to the group) or you can create a new group.
 Then You can add users to the group. You click on the group name and following on Manage group Memberships. On this page you can choose user to add to the group. User should use EGI check-in to be in the list.
 
-Web access
+### Web access
 If you have a link to desired data, click on the link. You can also sign in Onedata Onezone, where you can find spaces with
-
-
