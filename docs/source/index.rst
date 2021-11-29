@@ -20,7 +20,6 @@ Contents
     :hidden:
 
    user
-    
 
 .. toctree::
     :maxdepth: 3
