@@ -104,13 +104,10 @@ Cluster initialized successfully
 In following steps, the setup of Oneprovider will be done.
 Access by access to https://example.domain.eu:9443.   Beginning of Onepanel installation is done through web browser with self-signed certificate. Your browser will alert you about this, but this is expected one-off matter. During this process will be generated valid Let’s Encrypt certificate, which will be used for further communication. You can also use your own certificate e.g., issued by your institution. 
 
-.. image:: images/oneprovider_01.png
+.. image:: images/02_OP_setup.png
    :width: 600
 
 Fig. 
-
-.. image:: sources/images/oneprovider_01.png
-   :width: 600
 
 Fig. Beginning of Oneprovider setup
 Choose Create a new cluster and on the following screen click on the button Create Oneprovider cluster. 
