@@ -17,17 +17,14 @@ Contents
 .. toctree::
    :maxdepth: 3
    :numbered:
-   :caption: User documentation
-   :hidden:
+   :caption: Users documentation
 
    user
 
 .. toctree::
    :maxdepth: 3
    :numbered:
-   :caption: Lab documentation
-   :hidden:
+   :caption: Laboratory documentation
 
-   overview
    oneprovider
    fs2od
