@@ -1,26 +1,29 @@
 Deployment of Oneprovider
 =========================
-There are several possibilities how to install and deploy Oneprovider service. All options you can find in documentation of Onedata. In this tutorial we describe deployment of Onedata service using Docker.
+There are several possibilities how to install and deploy Oneprovider service. All options you can find in documentation of Onedata (https://onedata.org/#/home/documentation). In this tutorial we describe deployment of Onedata service using Docker.
 
 Requirements
 ------------
 Requirements to run Oneprovider are described in official documentation as shown in the table. We recommend use Optimal setting. In following text there is described One provider deployment for usage of up to 100 users, for more sophisticated deployment please see Onedata documentation (https://onedata.org/#/home/documentation/stable/doc/administering_onedata/oneprovider_tutorial.html). 
-Requirement	Minimum	Optimal 
-CPU	8 vCPU	16 vCPU
-RAM	32GB	64GB
-Local disk	SSD	SSD
-Local storage space	20GB + 8MB for each 1000 files	40GB + 8MB for each 1000 files
-OS	Any Docker compatible	Any Docker compatible
-Tab. – Requirements of Oneprovider
-(source: https://onedata.org/#/home/documentation/stable/doc/system_requirements.html)
+
+.. csv-table:: Requirements of Oneprovider
+   :file: tables/oneprovider_requirements.csv
+   :widths: 30, 70
+   :header-rows: 1
+
+Tab. – 
+(https://onedata.org/#/home/documentation/stable/doc/system_requirements.html)
 
 Prepare environment for containers running
 ------------------------------------------
-At first is needed to install Docker subsystem. Installation steps depends on your operating system. Installation instruction you can find at official documentation at https://docs.docker.com/get-docker
-After installation add your user to group which has access to Docker. 
-# groupadd command may not been needed
+At first is needed to install Docker subsystem. Installation steps depends on your operating system. Installation instruction you can find at official documentation (https://docs.docker.com/get-docker). After installation may be needed to add your user to group which has access to Docker. 
+
+```bash
+# create group docker
 sudo groupadd docker
+# add user defined in variable $USER to group docker
 sudo usermod -aG docker $USER
+```
 Next you need to get tool Docker compose. Steps for your architecture are described at https://docs.docker.com/compose/install
 
 Prepare environment for Oneprovider
