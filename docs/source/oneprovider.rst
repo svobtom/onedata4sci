@@ -237,7 +237,7 @@ Monitor of Oneprovider container
 -----------------------------------
 You can see the live log of Oneprovider:
 
-.. code-block:: bash
+.. code:: bash
 
    docker-compose -f docker-compose.yml logs --follow
 
