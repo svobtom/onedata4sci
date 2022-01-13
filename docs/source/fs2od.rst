@@ -1,9 +1,10 @@
 fs2od utility
 =============
-Software fs2od (filesystem to Onedata) is separate part of the system packed into a Docker container, which simplified interaction with Onedata system. It can take list of directories which should by cloudified and periodically check them and import them into Onedata system. Each subdirectory of specified directory represents separate dataset. For each such dataset will be created space. It can be run on the same node as Oneprovider. It must have access to the directories which should be loaded to Onedata 
+Software fs2od (filesystem to Onedata) is separate part of the system packed into a Docker container, which simplified interaction with Onedata system. It can take list of directories which should by cloudified and periodically check them and import them into Onedata system. Each subdirectory of specified directory represents separate dataset. For each such dataset will be created Onedata space.   
 
-.. autosummary::
-   :toctree: generated
+Requirements
+------------
+It can be run on the same node as Oneprovider. It must have access to the directories which should be loaded to Onedata.
 
 Downloading of software
 -----------------------
