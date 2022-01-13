@@ -27,9 +27,10 @@ Contents
 .. toctree::
    :maxdepth: 2
    :numbered:
-   :caption: Users documentation
+   :caption: User documentation
 
-   user
+   user/user
+   user/download_all
 
 .. toctree::
    :maxdepth: 2
