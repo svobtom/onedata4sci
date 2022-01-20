@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'fs2od'
-copyright = '2021, Masaryk University'
-author = 'Tomas Svoboda'
+project = 'cryoem-fs2od'
+copyright = '2022, Masaryk University'
+author = 'Tomáš Svoboda, Aleš Křenek'
 
 release = '0.1'
 version = '0.1.0'
