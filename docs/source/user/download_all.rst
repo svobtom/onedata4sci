@@ -1,37 +1,12 @@
-Download a space
-================
-There is posibility to download whole content of a space. This steps can be used also on a directory, if you would like to download it recursively. At first you should have a unique identifier of the space or directory. 
+Download a dataset
+==================
+There is posibility to download whole dataset at once. Following steps can be used also applied on a directory (to download it recursively) or on a single file. 
 
-Get space identifier
---------------------
-Space ID you can find in several places. 
+At first you should have a unique identifier of space, directory or file.
 
-Metadata file
-*************
-Space ID is contained in YAML file with space metadata. 
+.. warning::
 
-.. image:: ../images/18_space_id_in_file.png
-   :width: 500
-   :align: center
-   :alt: Space ID in metadata YAML file
-
-Web page of a Share
-*******************
-After openning share URL in your web broser, you can find Space ID on ``Description`` tab. 
-
-.. image:: ../images/19_space_id_share.png
-   :width: 500
-   :align: center
-   :alt: Space ID in Description of a web Share
-
-Overview of a space
-*******************
-If you have access to the space through the Onedata GUI, you can copy it from space Overview.
-
-.. image:: ../images/20_space_id_overview.png
-   :width: 500
-   :align: center
-   :alt: Space ID in Space Overview
+   Only files which were shared can be downloaded by this script. 
 
 Get file identifier
 -------------------
@@ -50,33 +25,27 @@ File ID is long string as you se bellow.
    :alt: File ID
 
 Usage of the script
-----------------------------
+-------------------
 Basic usage
 ***********
 The script can be downloaded from URL https://raw.githubusercontent.com/CERIT-SC/onedata-downloader/master/download.py e.g. by this command
 
 .. code:: bash
 
-    curl -s --output download.py https://raw.githubusercontent.com/CERIT-SC/onedata-downloader/master/download.py
+   curl -s --output download.py https://raw.githubusercontent.com/CERIT-SC/onedata-downloader/master/download.py
 
-With identifier of the space or directory, you can download the data. 
-
-.. note::
-
-    Despite Space ID and File ID are two different identifier of a space, you can use any of them. 
-
-Replace FILE_ID with the acquired identifier.
+With appropriate identifier, you can download the data. Replace FILE_ID with the identifier.
 
 .. code:: bash
 
-    ./download.py FILE_ID
+   ./download.py FILE_ID
 
 Script download whole file structure to recent directory. 
 
 Direct usage
 ************
-The script can be used without downloading
+The script can be used directly from its repository
 
 .. code:: bash
 
-    curl -s https://raw.githubusercontent.com/CERIT-SC/onedata-downloader/master/download.py | python3 - FILE_ID
+   curl -s https://raw.githubusercontent.com/CERIT-SC/onedata-downloader/master/download.py | python3 - FILE_ID
