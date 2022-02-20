@@ -19,7 +19,7 @@ At first is needed to install Docker subsystem. Installation steps depends on yo
 
 .. code:: bash
 
-   # create group docker
+   # create group docker (might not be necessary)
    sudo groupadd docker
    # add user defined in variable $USER to group docker
    sudo usermod -aG docker $USER
@@ -85,20 +85,52 @@ Prepare following directory structure where Oneprovider container stores its con
    sudo mkdir -p /opt/onedata/datahub/oneprovider
    sudo mkdir /opt/onedata/datahub/oneprovider/cacerts
    sudo mkdir /opt/onedata/datahub/oneprovider/persistence
-   # create a folder where data itself can be stored    or use an existing
-   sudo mkdir /opt/onedata/storage
+   # create a folder where data itself can be stored or use an existing
+   sudo mkdir /var/onedata/storage
 
 Chdir to newly created directory.
 
 .. code:: bash
 
-   cd /opt/onedata/datahub/oneprovider
+   sudo cd /opt/onedata/datahub/oneprovider
 
 Download text file with configuration of Oneprovider container (docker-compose.yml).
 
-.. code:: bash
+.. code:: yaml
 
-   wget https://raw.githubusercontent.com/svobtom/cryo-em/main/docker-compose.yml
+   version: '2.0'
+
+   services:
+      oneprovider:
+         # Oneprovider Docker image version
+         image: onedata/oneprovider:20.02.15
+         # Hostname (in this case the hostname inside Docker network)
+         # hostname: ip-147-251-21-116.flt.cloud.muni.cz
+         # Optional, in case Docker containers have no DNS access
+         # dns: 8.8.8.8
+         # Host network mode is preferred, but on some systems may not work (e.g. CentOS)
+         # then use bridge and uncomment ports section
+         network_mode: host
+         # Expose the necessary ports from Oneprovider container to the host
+         # Ports section can be commented when using "network_mode: host"
+
+         #ports:
+         #  - "80:80"
+         #  - "443:443"
+         #  - "6665:6665"
+         #  - "9443:9443"
+         # Restart policy
+         restart: unless-stopped
+         
+         # Mapping of volumes to Oneprovider container
+         volumes:
+            - "/var/run/docker.sock:/var/run/docker.sock"
+            # Oneprovider runtime files
+            - "/opt/onedata/oneprovider/persistence:/volumes/persistence"
+            # Data storage directories
+            - "/var/onedata/storage:/volumes/storage"
+            # Additional, trusted CA certificates (all files from this directory will be added)
+            - "/opt/onedata/oneprovider/cacerts:/etc/op_worker/cacerts"
 
 Open the file in a text editor. You can edit desired version of Oneprovider. You can check the newest version of Oneprovider image on the Docker Hub (https://hub.docker.com/r/onedata/oneprovider/tags). Please keep in mind that you cannot use newer version of Oneprovider than is a version of used Onezone. For detailed information about compatibility see https://onedata.org/#/home/versions. You can edit location of folders with persistent data on the host node. You have to fill in domain name of new Oneprovider. 
 
@@ -139,9 +171,10 @@ Running the container
 In docker-compose file there is specified restart policy to run the container ``unless-stopped``. So the container run also after reboot of the host (in case of  docker daemon is run automatically after reboot – this is a default behaviour). 
 
 You can always see live output of Oneprovider container by command
+
 .. code:: bash
 
-   docker-compose -f docker-compose.yml logs --follow --timestamps
+   docker-compose -f docker-compose.yml logs --follow --timestamps --tail 100
 
 The first start-up of the container can last for a few minutes. The process is done when you see in the log output the message
 Cluster initialized successfully
@@ -149,7 +182,7 @@ Cluster initialized successfully
 Configuration of Oneprovider
 -----------------------------------
 In following steps, the setup of Oneprovider will be done.
-Access by web browser URL https://example.domain.eu:9443. Beginning of Onepanel installation is done through web browser with self-signed certificate. Your browser will alert you about this, but this is expected one-off matter. During this process will be generated valid Let’s Encrypt certificate, which will be used for further communication. You can also use your own certificate e.g., issued by your institution. 
+Access by web browser URL https://example.domain.eu:9443. Beginning of Onepanel installation is done through web browser with self-signed certificate. Your browser will alert you about this, but this is expected. During this process valid Let’s Encrypt certificate will be generated. This certificate will be used for further communication. You can also use your own certificate. 
 
 .. image:: images/02_OP_setup.png
    :width: 500

@@ -6,7 +6,7 @@ At first you should have a unique identifier of space, directory or file.
 
 .. warning::
 
-   Only files which were shared can be downloaded by this script. 
+   Only spaces which are shared can be downloaded by this script. 
 
 Get file identifier
 -------------------
@@ -28,19 +28,27 @@ Usage of the script
 -------------------
 Basic usage
 ***********
-The script can be downloaded from URL https://raw.githubusercontent.com/CERIT-SC/onedata-downloader/master/download.py e.g. by this command
+The script can be downloaded from URL https://raw.githubusercontent.com/CERIT-SC/onedata-downloader/master/download.py. You can do it e.g. with ``curl`` by this command:
 
 .. code:: bash
 
    curl -s --output download.py https://raw.githubusercontent.com/CERIT-SC/onedata-downloader/master/download.py
 
-With appropriate identifier, you can download the data. Replace FILE_ID with the identifier.
+To run this script you need ``Python 3`` installed with module ``requests``. For installing ``Python 3`` visit https://www.python.org/downloads/. Module  ``requests`` can by installed by 
+
+.. code:: bash
+
+   pip install requests
+   # or
+   pip3 install requests
+
+You can download the data. Replace FILE_ID with the identifier of desired space, folder or a single file.
 
 .. code:: bash
 
    ./download.py FILE_ID
 
-Script download whole file structure to recent directory. 
+Script download whole file or file structure to a recent directory. 
 
 Direct usage
 ************
