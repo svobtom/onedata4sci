@@ -7,7 +7,7 @@ Access with EGI CheckIn credentials
 EGI CheckIn Login and Identity
 ------------------------------
 
-On creating the request for data acquisition, the user can also specify his/her identity in `EGI CheckIn <https://aai.egi.eu>`.
+On creating the request for data acquisition, the user can also specify his/her identity in `EGI CheckIn <https://aai.egi.eu>`_.
 
 Follow the link above and log in with identity from your institution.
 The identity is displayed after clicking the user name in the upper right corner.
@@ -16,7 +16,7 @@ The identity is displayed after clicking the user name in the upper right corner
 EGI Data Hub
 ------------
 
-`EGI DataHub <https://datahub.egi.eu/>` is the entry point to the OneData infrastructure we use.
+`EGI DataHub <https://datahub.egi.eu/>`_ is the entry point to the OneData infrastructure we use.
 The user can log in to the service (follow the link) with the EGI CheckIn credentials as described above.
 After successful login, the left sidebar shows OneData *spaces*, we create one for each acquired dataset. 
 They can be accessed by clicking the **Data** icon here.
@@ -27,7 +27,7 @@ They can be accessed by clicking the **Data** icon here.
 Share with other users
 ----------------------
 
-Log in to `EGI CheckIn <https://aai.egi.eu>`.
+Log in to `EGI CheckIn <https://aai.egi.eu>`_.
 Click on item Groups in the left menu and choose My Groups. You will see groups you are belong to,
 our service creates a dedicated group to each dataset the user acquires.
 

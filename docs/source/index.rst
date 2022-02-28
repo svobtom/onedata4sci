@@ -24,7 +24,7 @@ Introduction of system architecture.
    :maxdepth: 2
    :hidden:
    :numbered:
-   :caption: Introduction
+   :caption: Overview
 
    introduction/index
    introduction/roles
@@ -39,7 +39,7 @@ Documentation for user who would like to access the data.
    :maxdepth: 2
    :hidden:
    :numbered:
-   :caption: User documentation
+   :caption: User access to the data
 
    user/link
    user/download_all
@@ -47,8 +47,8 @@ Documentation for user who would like to access the data.
    user/mount
    user/scipion
 
-Laboratory documentation
-------------------------
+Setup at facility
+-----------------
 
 Documentation for laboratory (core facility) staff.
 
@@ -56,7 +56,7 @@ Documentation for laboratory (core facility) staff.
    :maxdepth: 2
    :hidden:
    :numbered:
-   :caption: Laboratory documentation
+   :caption: Setup at facility
 
    labs/oneprovider
    labs/fs2od
