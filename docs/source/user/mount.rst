@@ -9,4 +9,6 @@ oneclient -t <ACCESS_TOKEN> -H <PROVIDER_IP> <MOUNT_PATH>
 Further reading about Oneclient: 
 https://onedata.org/#/home/documentation/stable/doc/using_onedata/oneclient.html
 
-.. todo: specific instructions how to obtain the token, and provider IP/name
+.. todo::
+
+specific instructions how to obtain the token, and provider IP/name

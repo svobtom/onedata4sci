@@ -1,7 +1,9 @@
 Access with EGI CheckIn credentials
 ===================================
 
-.. todo:: check the procedure for correctness (e.g. do we really provide identity on requesting the data?)
+.. todo::
+
+check the procedure for correctness (e.g. do we really provide identity on requesting the data?)
 
 
 EGI CheckIn Login and Identity
@@ -21,7 +23,9 @@ The user can log in to the service (follow the link) with the EGI CheckIn creden
 After successful login, the left sidebar shows OneData *spaces*, we create one for each acquired dataset. 
 They can be accessed by clicking the **Data** icon here.
 
-.. todo: Representative screenshot
+.. todo: 
+
+Representative screenshot
 
 
 Share with other users
