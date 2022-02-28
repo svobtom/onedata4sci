@@ -15,8 +15,8 @@ Provided services are compatible with FAIR principles. Acquired data can be labe
 
    This project is under active development.
 
-Introduction
-------------
+Overview
+--------
 
 Introduction of system architecture.
 
@@ -30,8 +30,8 @@ Introduction of system architecture.
    introduction/roles
    introduction/components
 
-User documentation
-------------------
+User access to the data
+-----------------------
 
 Documentation for user who would like to access the data.
 
@@ -41,8 +41,11 @@ Documentation for user who would like to access the data.
    :numbered:
    :caption: User documentation
 
-   user/user
+   user/link
    user/download_all
+   user/checkin
+   user/mount
+   user/scipion
 
 Laboratory documentation
 ------------------------

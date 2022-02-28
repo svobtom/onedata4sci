@@ -1,5 +1,5 @@
-Download a dataset
-==================
+Batch dataset download
+======================
 There is posibility to download whole dataset at once. Following steps can be used also applied on a directory (to download it recursively) or on a single file. 
 
 At first you should have a unique identifier of space, directory or file.
