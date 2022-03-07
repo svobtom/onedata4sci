@@ -184,35 +184,35 @@ Configuration of Oneprovider
 In following steps, the setup of Oneprovider will be done.
 Access by web browser URL https://example.domain.eu:9443. Beginning of Onepanel installation is done through web browser with self-signed certificate. Your browser will alert you about this, but this is expected. During this process valid Let’s Encrypt certificate will be generated. This certificate will be used for further communication. You can also use your own certificate. 
 
-.. image:: images/02_OP_setup.png
+.. image:: ../images/02_OP_setup.png
    :width: 500
    :align: center
    :alt: Beginning of Oneprovider setup
 
 Choose ``Create a new cluster`` and on the following screen click on the button ``Create Oneprovider cluster``. 
 
-.. image:: images/03_OP_setup.png
+.. image:: ../images/03_OP_setup.png
    :width: 500
    :align: center
    :alt: Oneprovider welcome page
 
 Fill in an emergency passphrase. Save the passphrase to a safe place. In can be used in situation when you lost access to Oneprovider through external identity provider. 
 
-.. image:: images/04_OP_passphraze.png
+.. image:: ../images/04_OP_passphraze.png
    :width: 500
    :align: center
    :alt: Setup of passphraze
 
 Because you install a new cluster select first four possibilities (Database, Cluster Worker, Cluster Manager, Primary Cluster Manager). On the contrary, leave the Ceph option unchecked. After this you can click on the ``Deploy`` button. 
 
-.. image:: images/05_OP_cluster_setup.png
+.. image:: ../images/05_OP_cluster_setup.png
    :width: 500
    :align: center
    :alt: Cluster setup
 
 It take some time. Afer the cluster is deployed, the web interface prompts for a registration token: 
 
-.. image:: images/06_OP_registration.png
+.. image:: ../images/06_OP_registration.png
    :width: 500
    :align: center
    :alt: Registration Oneprovider to Onezone
@@ -221,7 +221,7 @@ Now you have to register your new deployed Oneprovider to Onezone service . In t
 
 In a new browser window or pane open URL https://datahub.egi.eu sign-in with your EGI identity through EGI Check-in (blue icon). You can choose from various identity providers. You can use your identity from your institution (recommended) if your institution is on the list. You can also use your social identity (Google account, …). 
 
-.. image:: images/07__OZ_sign_in.png
+.. image:: ../images/07__OZ_sign_in.png
    :width: 500
    :align: center
    :alt: Onezone sign in page
@@ -231,35 +231,35 @@ After successful login you will see Onezone web interface. Now you have to add n
 .. centered::
    CLUSTERS > Plus sign (Adding a new cluster)
 
-.. image:: images/08_OZ_clusters.png
+.. image:: ../images/08_OZ_clusters.png
    :width: 500
    :align: center
    :alt: Cluster management in Onezone
 
 Copy token from Onezone web interface to Oneprovider. 
 
-.. image:: images/09_OP_registration.png
+.. image:: ../images/09_OP_registration.png
    :width: 500
    :align: center
    :alt: 
 
 Fill in basic information about Oneprovider. Provider name will see users e.g. in web interface. Subdomain will be used e.g by users in parameters of Oneclient. 
 
-.. image:: images/10_OP_registration.png
+.. image:: ../images/10_OP_registration.png
    :width: 500
    :align: center
    :alt: Registering Oneprovider
 
 Check IP address of Oneprovider. Prefilled value should be the right value. 
 
-.. image:: images/11_IP_address.png
+.. image:: ../images/11_IP_address.png
    :width: 500
    :align: center
    :alt: Cluster IP address
 
 After DNS check  (it may take a while)  you can request for Let’s Encrypt certificate. If necessary, you can use certificate from another authority. 
 
-.. image:: images/12_certificate.png
+.. image:: ../images/12_certificate.png
    :width: 500
    :align: center
    :alt: Setup certificate
