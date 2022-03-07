@@ -7,7 +7,7 @@ Requirements
 Requirements to run Oneprovider are described in official documentation as shown in the table. We recommend use Optimal setting. In following text there is described One provider deployment for usage of up to 100 users, for more sophisticated deployment please see Onedata documentation (https://onedata.org/#/home/documentation/stable/doc/administering_onedata/oneprovider_tutorial.html). 
 
 .. csv-table:: Requirements of Oneprovider
-   :file: tables/oneprovider_requirements.csv
+   :file: ../tables/oneprovider_requirements.csv
    :header-rows: 1
    :stub-columns: 1
 

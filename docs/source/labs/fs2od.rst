@@ -35,21 +35,21 @@ You will need following three tokens:
 You can generate Oneprovider and Oneprovider Onepanel token in once. In following text, we will use such "two in one" token. 
 To get “Oneprovider REST access token” and “Onepanel REST access token” click on icon ``ONEPROVIDER REST/CDMI ACCESS``. Select a name to your token or let the suggested one. Let the type ``Access``. To service field you have to be set to two values which are shown in the picture. You can choose specific instance of your Oneprovider or you can generate token for all of your Oneproviders. Interface leave set to REST. 
 
-.. image:: images/08_OZ_clusters.png
+.. image:: ../images/08_OZ_clusters.png
    :width: 500
    :align: center
    :alt: Create Oneprovider and Oneprovider Onepanel Tokens
 
 To get “Onezone REST access token” click on icon “ONEZONE REST ACCESS”. Select a name to your token or let the suggested one. Let the type “Access”. Service have to be set to your Onezone (EGI DATAHUB). Interface leave set to REST.
 
-.. image:: images/08_OZ_clusters.png
+.. image:: ../images/08_OZ_clusters.png
    :width: 500
    :align: center
    :alt: Create Onezone token
 
 For all tokens you can also set many other caveats – restrictions to token usage. For security reasons is in production recommended to restrict usage of tokens at least by IP access list to make token usable only from given set of IP address. If you limit usage by IP address you must include machine, where fs2od running to IP whitelist. 
 
-.. image:: images/08_OZ_clusters.png
+.. image:: ../images/08_OZ_clusters.png
    :width: 500
    :align: center
    :alt: All caveats (restrictions) which token management support
