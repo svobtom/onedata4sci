@@ -10,9 +10,10 @@ Recently, more emphasis is given on availability of the data so that any scienti
 The scenario applies to growing nubmer of both users and facilities, amounts of generated data are increasing, 
 and their availability should be ensured in long term.
 
-**fs2od-cryoem** is an assembly of best practices, third-party software and services (`Onedata <http://onedata.org>` in particular),
+**fs2od-cryoem** is an assembly of best practices, third-party software and services (`Onedata <http://onedata.org>`_ in particular),
 and in-house "glue" software to handle the outlined scenario, with primary application domain of cryoelectron microscopy.
 Its purpose can be summarized as follows:
+
 * manage storage of experimental data over large-scale international e-infrastructure, including several tiers of physical data storage (the experimental facilities where data are acquired, national or scientific domain data storage services, computing facilities etc.)
 * make the data easily available to the users -- scientists
 * allow controlled data sharing among multiple users in collaborative projects
