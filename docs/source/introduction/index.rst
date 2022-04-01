@@ -2,9 +2,9 @@ Introduction
 ============
 
 In many scientific disciplines the expensive equipment is shared nowadays.
-The **users** -- scientists request specific experiments from **facilities**, which perform the experiments 
+The ``users`` -- scientists request specific experiments from ``facilities``, which perform the experiments 
 on their behalf.
-The outcome of such experiment is a **dataset**, which can be quite huge in many cases.
+The outcome of such experiment is a ``dataset``, which can be quite huge in many cases.
 The users process those datasets, draw scientific conclusions by their interpretation, and publish the resutls.
 Recently, more emphasis is given on availability of the data so that any scientific results can be verified independently.
 The scenario applies to growing nubmer of both users and facilities, amounts of generated data are increasing, 
