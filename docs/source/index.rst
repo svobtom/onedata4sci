@@ -30,6 +30,7 @@ Introduction of system architecture.
    introduction/usecases
    introduction/roles
    introduction/components
+   introduction/setup
 
 User access to the data
 -----------------------
