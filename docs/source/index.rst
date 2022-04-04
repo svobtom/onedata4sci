@@ -47,6 +47,7 @@ Documentation for user who would like to access the data.
    user/download_all
    user/checkin
    user/mount
+   user/replica
    user/scipion
 
 Setup at facility

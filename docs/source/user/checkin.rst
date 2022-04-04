@@ -1,7 +1,7 @@
 Access with EGI CheckIn credentials
 ===================================
 
-.. todo::
+.. note::
 
 check the procedure for correctness (e.g. do we really provide identity on requesting the data?)
 

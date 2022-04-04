@@ -30,10 +30,42 @@ This is an example how such metadata file can look afterwards (truncated):
 
 Finaly, fs2od instructs Oneprovider to scan the folder, which populates the corresponding space effectively.
 
+The facility operator is expected to deliver the access link and the invite token to the user.
+
+The data storage size at the experimental facility is expected to be of a limited size, and it can guarantee the users
+to keep the acquired data for a fairly short period (weeks to months).
+The users are required to request replication of the data to a long term storage (community or national);
+this is done by technical means of Onedata again.
 
 Community/national storage site
 -------------------------------
 
+Typically, experimental facilities are not equipped to store huge volumes of user data for long term.
+Therefore the users are required to negotiate data storage capacity elsewhere.
+Possible candidates are storage sites operated by institutiona, national or international user community,
+national e-infrastructure etc.
+
+Besides the physical storage, the sites are required to run ``Oneprovider`` in stadard configuration (see `Onedata documentation https://onedata.org/#/home/documentation/stable/index.html>`_).
+The provider is required to join the `EGI Datahub <https://datahub.egi.eu>`_ Onezone instance.
+
+The provider is strongly encouraged to use ``S3 storage backend``, which we support in turn in the compute client configuration (see bellow).
+Otherwise the provider-client communication falls back to Onedata internal "poor man" protocol with serious to prohibitive impact on
+performance with non-toy datasets. 
+
 
 Compute site
 ------------
+
+Extensive computational processing of the experimental data is expected to be done at a computing (cloud) site.
+In order to achieve efficient access to the data, the site must install ``Oneclient`` including S3 libraries.
+
+Currently, we support `Scipion <https://scipion.i2pc.es>`_ CryoEM software suite, configured in prepared Docker container
+images ready to be used in Kubernetes. 
+See our `Github project <https://https://github.com/CERIT-SC/scipion-docker/tree/k8s-test`_ for details and documentation.
+
+This Scipion deployment is given a Oneprovider endpoint, the user's Onedata ``token``.
+It uses Oneclient over S3 to mount the dataset (Onedata space), and it copies it to a local storage typically (for performance reasons).
+Then the data are processed, and results can be uploaded to Onedata again for further sharing.
+
+
+
