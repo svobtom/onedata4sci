@@ -15,7 +15,7 @@ Onezone
 *******
 Onezone is catalogue which holds information about users, groups, access tokens, spaces, permissions (ACL), etc. Whole Onedata environment can be divided into zones. Each zone is managed by an Onezone service.
 
-We primary use Onezone ``datahub.egi.eu`` located at URL https://datahub.egi.eu, which is provided by EGI. This is a well-known instance of Onezone which is managed by authors of Onedata. As it supports login by ``EGI Check-In``, users can choose between many identity providers during login (including institutional or social identities). Although instructions in this documentation can be used to work with any Onezone. 
+We primary use Onezone `EGI Datahub <https://datahub.egi.eu>`_. This is a well-known instance of Onezone which is managed by authors of Onedata. As it supports login by `EGI Check-In <https://aai.egi.eu>`_, users can choose between many identity providers during login (including institutional or social identities). Although instructions in this documentation can be used to work with any Onezone. 
 
 Oneprovider
 ***********

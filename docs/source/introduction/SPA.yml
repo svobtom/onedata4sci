@@ -1,0 +1,24 @@
+Autoname: 20211227125_Demo
+Center: CEMCOF,EM-Instruct-CZ,Brno
+DataId: 08d9c8eb-6f63-408b-8743-84496f1de767
+Instrument: TitanKrios
+NotifyCompletion: true
+Sample:
+  File: ''
+  Id: 08d9c1f9-df4c-4058-86bd-15da1ec443be
+  Identifier: ''
+  KeywordsStr: 70S; ribosome; rnap; E.coli; transcription
+  Name: 70S_RNAP
+Subexperiments: []
+Type: SPA
+User:
+  Affiliation: CEITEC, Masaryk University, Kamenice 5, 62500 Brno, Czech Republic
+  DisplayName: Undisclosed User
+  Email: blahblah@ceitec.muni.cz
+UserType: internal
+Err: null
+Onedata:
+  Space: c265f2cc65a1bc1835929288be145d72ch458a
+  InviteToken: MDAxY2xvY2F0dhZHkbadf999gkaIuZWdpLmV1CjAwOTNpZGVudGlmaWVyIDIvbm1kL3Vzci004M2Qwyzkb09JhKKNkbhE3NDMwYjRmYTAxMDkzMzYzMGNoOGZkYy91amc6ODc2MDkxMmViZWNmZGYxNjQ00ZmUzZmE5MGNkOWRmMDhjaDljMDg6LzJiMjM3NTcxNDlkNzUyZmVjNGU00NDVhNzU5ODBiZjgyY2g5Nzk3CjAwMmZzaWduYXR1cmUgmAJ14AsNbDKcbw1adgmmgomS2q9Hv1Z01PQ4pcgc012DwK
+  PublicURL: https://datahub.egi.eu/share/17gd43dbede8fh8cbf995f0b4c8f960fchdc1f
+

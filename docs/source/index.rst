@@ -27,8 +27,10 @@ Introduction of system architecture.
    :caption: Overview
 
    introduction/index
+   introduction/usecases
    introduction/roles
    introduction/components
+   introduction/setup
 
 User access to the data
 -----------------------
@@ -45,6 +47,7 @@ Documentation for user who would like to access the data.
    user/download_all
    user/checkin
    user/mount
+   user/replica
    user/scipion
 
 Setup at facility

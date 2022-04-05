@@ -1,20 +1,25 @@
 Introduction
 ============
 
-This section contains basic overview of the system and definitions, which are used in following part of this documentation. These terms are common for users who require the access to data and also for providers of data.
+In many scientific disciplines the expensive equipment is shared nowadays.
+The ``users`` -- scientists request specific experiments from ``facilities``, which perform the experiments 
+on their behalf.
+The outcome of such experiment is a ``dataset``, which can be quite huge in many cases.
+The users process those datasets, draw scientific conclusions by their interpretation, and publish the resutls.
+Recently, more emphasis is given on availability of the data so that any scientific results can be verified independently.
+The scenario applies to growing nubmer of both users and facilities, amounts of generated data are increasing, 
+and their availability should be ensured in long term.
 
-Use cases
-=========
-There are several use cases describing in which manner the user interact with the proposed system.  
+**fs2od-cryoem** is an assembly of best practices, third-party software and services (`Onedata <http://onedata.org>`_ in particular),
+and in-house "glue" software to handle the outlined scenario, with primary application domain of cryoelectron microscopy.
+Its purpose can be summarized as follows:
 
-Simple access
---------------------------
-In this use case user does not have to deeply interact with described systems. User deliver sample with required data to lab. If sample and accompanying data are all right, the sample is scanned on the device. Information about the project is fill in the software by lab operator. After sample is scanned users get e-mail with URL, from where data can be downloaded. 
+* manage storage of experimental data over large-scale international e-infrastructure, including several tiers of physical data storage (the experimental facilities where data are acquired, national or scientific domain data storage services, computing facilities etc.)
+* make the data easily available to the users -- scientists
+* allow controlled data sharing among multiple users in collaborative projects
+* provide efficient access to the data to be processed at computing facilities
+* implement varying policies of handling the data (e.g. expriration at the acquisition facility, archiving in multiple copies, data publication after embargo period etc.)
 
-Sharing data with other users
------------------------------
-User have installed and set up own Oneprovider. User get a ``invite token`` by which is possible to replicate whole space with dataset to its infrastructure. 
-
-Use in computing center
--------------------------------
-Space is stored and accesible through an Oneprovider located in a computing centre. User can ask for specified computer node through ``Kubernetes``, ``Infrastructure manager`` and can perform desired computation. 
+The following parts of this section describe principal driving usecase, define the essential roles, and provide technical description
+of the overal solution.
+The furher sections are dedicated to details of installation and usage, and they are arranged according to the defined roles (users and administrators).
