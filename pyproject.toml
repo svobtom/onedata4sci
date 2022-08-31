@@ -3,6 +3,6 @@ requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "cryoem-fs2od"
+name = "fs2od"
 authors = [{name = "Tomáš Svoboda", email = "svoboda@ics.muni.cz"}, {name = "Aleš Křenek", email = "ljocha@ics.muni.cz"}]
 dynamic = ["version", "description"]
