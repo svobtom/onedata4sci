@@ -8,7 +8,7 @@ There is a simple posibility to download whole dataset at once from command line
 
 Every shared object (space, directory or file) have its own unique identifier (``File ID``). If you know the file ID you can download the object. 
 
-Hot to get file identifier
+How to get file identifier
 --------------------------
 When you access the URL by your web browser, you can found ``File ID`` by right click on the name of a space/directory/file in pop-up menu item ``Information``.
 

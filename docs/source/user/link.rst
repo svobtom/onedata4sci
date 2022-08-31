@@ -11,4 +11,3 @@ This is a general security problem, the link should expire in some short period,
 
 The web interface is convenient for a quick overview and access to individual files, however, it becomes 
 cumbersome to download dozens or even hundreds of files. See the next section for a batch download optinon.
- 

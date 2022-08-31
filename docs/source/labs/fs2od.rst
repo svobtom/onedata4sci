@@ -13,7 +13,8 @@ For running the software, you need following to two files:
 - docker-compose.yaml – Docker compose file containing recipe to downloading and run container with fs2od application. Download at https://raw.githubusercontent.com/CERIT-SC/fs2od/master/docker-compose.yaml
 - config.yaml – configuration file of application. Download at https://raw.githubusercontent.com/CERIT-SC/fs2od/master/app/config.yaml
 
-Whole software can be also downloaded with its source code from git repository:
+You can run software only with two files mentioned above. For some advance usage you can also download source code of the software from its git repository:
+
 .. code:: bash
 
    git clone https://github.com/CERIT-SC/fs2od.git  .
@@ -21,6 +22,7 @@ Whole software can be also downloaded with its source code from git repository:
 Creating tokens
 ---------------
 You must have tokens to be able to communicate with Onezone and your Oneprovider. 
+
 Creating tokens:
 
 .. centered::
@@ -32,8 +34,7 @@ You will need following three tokens:
 2.	Oneprovider Onepanel REST access token
 3.	Onezone REST access token
 
-You can generate Oneprovider and Oneprovider Onepanel token in once. In following text, we will use such "two in one" token. 
-To get “Oneprovider REST access token” and “Onepanel REST access token” click on icon ``ONEPROVIDER REST/CDMI ACCESS``. Select a name to your token or let the suggested one. Let the type ``Access``. To service field you have to be set to two values which are shown in the picture. You can choose specific instance of your Oneprovider or you can generate token for all of your Oneproviders. Interface leave set to REST. 
+You can generate Oneprovider and Oneprovider Onepanel token in once. In following text, we will use such "two in one" token. To get ``Oneprovider REST access token`` and ``Onepanel REST access token`` click on icon ``ONEPROVIDER REST/CDMI ACCESS``. Select a name to your token or let the suggested one. Let the type ``Access``. To service field you have to be set to two values which are shown in the picture. You can choose specific instance of your Oneprovider or you can generate token for all of your Oneproviders. Interface leave set to REST. 
 
 .. image:: ../images/08_OZ_clusters.png
    :width: 500

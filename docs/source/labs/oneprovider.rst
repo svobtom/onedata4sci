@@ -86,15 +86,15 @@ Prepare following directory structure where Oneprovider container stores its con
    sudo mkdir /opt/onedata/datahub/oneprovider/cacerts
    sudo mkdir /opt/onedata/datahub/oneprovider/persistence
    # create a folder where data itself can be stored or use an existing
-   sudo mkdir /var/onedata/storage
+   sudo mkdir -p /var/onedata/storage
 
 Chdir to newly created directory.
 
 .. code:: bash
 
-   sudo cd /opt/onedata/datahub/oneprovider
+   cd /opt/onedata/datahub/oneprovider
 
-Download text file with configuration of Oneprovider container (docker-compose.yml).
+Download text file with configuration of Oneprovider container (``docker-compose.yml``).
 
 .. code:: yaml
 
@@ -103,17 +103,17 @@ Download text file with configuration of Oneprovider container (docker-compose.y
    services:
       oneprovider:
          # Oneprovider Docker image version
-         image: onedata/oneprovider:20.02.15
-         # Hostname (in this case the hostname inside Docker network)
+         image: onedata/oneprovider:20.02.17
+         # Hostname should be the domain name by which is the Oneprovider accesible from the Internet
          # hostname: ip-147-251-21-116.flt.cloud.muni.cz
          # Optional, in case Docker containers have no DNS access
          # dns: 8.8.8.8
          # Host network mode is preferred, but on some systems may not work (e.g. CentOS)
          # then use bridge and uncomment ports section
+         # in the host mode all ports are exposed from container
          network_mode: host
          # Expose the necessary ports from Oneprovider container to the host
          # Ports section can be commented when using "network_mode: host"
-
          #ports:
          #  - "80:80"
          #  - "443:443"
@@ -126,11 +126,11 @@ Download text file with configuration of Oneprovider container (docker-compose.y
          volumes:
             - "/var/run/docker.sock:/var/run/docker.sock"
             # Oneprovider runtime files
-            - "/opt/onedata/oneprovider/persistence:/volumes/persistence"
+            - "/opt/onedata/datahub/oneprovider/persistence:/volumes/persistence"
             # Data storage directories
             - "/var/onedata/storage:/volumes/storage"
             # Additional, trusted CA certificates (all files from this directory will be added)
-            - "/opt/onedata/oneprovider/cacerts:/etc/op_worker/cacerts"
+            - "/opt/onedata/datahub/oneprovider/cacerts:/etc/op_worker/cacerts"
 
 Open the file in a text editor. You can edit desired version of Oneprovider. You can check the newest version of Oneprovider image on the Docker Hub (https://hub.docker.com/r/onedata/oneprovider/tags). Please keep in mind that you cannot use newer version of Oneprovider than is a version of used Onezone. For detailed information about compatibility see https://onedata.org/#/home/versions. You can edit location of folders with persistent data on the host node. You have to fill in domain name of new Oneprovider. 
 
@@ -156,7 +156,7 @@ Download Oneprovider docker image from Docker Hub , it can take several minutes.
 
 .. code:: bash
 
-   docker-compose -f docker-compose.yml pull
+   docker-compose pull
 
 Running the container
 
@@ -166,7 +166,7 @@ Running the container
 
 .. code:: bash
 
-   docker-compose -f docker-compose.yml up -d --no-recreate
+   docker-compose up -d --no-recreate
 
 In docker-compose file there is specified restart policy to run the container ``unless-stopped``. So the container run also after reboot of the host (in case of  docker daemon is run automatically after reboot – this is a default behaviour). 
 
@@ -174,7 +174,7 @@ You can always see live output of Oneprovider container by command
 
 .. code:: bash
 
-   docker-compose -f docker-compose.yml logs --follow --timestamps --tail 100
+   docker-compose logs --follow --timestamps --tail 100
 
 The first start-up of the container can last for a few minutes. The process is done when you see in the log output the message
 Cluster initialized successfully
