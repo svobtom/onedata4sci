@@ -6,4 +6,4 @@ acquired data available for processing directly, without the need to copy them m
 
 .. note:: 
 
-write later
+   To be wrote latter ...

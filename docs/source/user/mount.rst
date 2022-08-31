@@ -30,23 +30,24 @@ A new access token will be generated. You can copy&paste it.
 
 Run the Oneclient application
 -----------------------------
+Download and install Oneclient by following command
 
 .. code:: bash
 
    curl -sS http://get.onedata.org/oneclient.sh | bash
 
-Oneclient run by:
+Run the application by these steps:
 
 .. code:: bash
+
    # create folder where Onedata spaces will be mounted
    mkdir onedata
 
    # mount Onedata spaces
    oneclient -t <ACCESS_TOKEN> -H <PROVIDER_IP> <MOUNT_PATH>
 
-Further reading about Oneclient: 
-https://onedata.org/#/home/documentation/stable/doc/using_onedata/oneclient.html
+Further reading about Oneclient: https://onedata.org/#/home/documentation/stable/doc/using_onedata/oneclient.html
 
 .. todo::
 
-specific instructions how to obtain the token, and provider IP/name
+   specific instructions how to obtain the token, and provider IP/name
