@@ -1,6 +1,6 @@
-cryoem-fs2od documentation
+Onedata4sci documentation
 ==========================
-Documentation for workflow of storing and sharing the datasets from Cryo-EM facilities. 
+Documentation for workflow of storing and sharing the datasets from facilities. 
 
 For build the docs on your own computer change to the directory with ``Makefile`` and run:
 

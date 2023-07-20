@@ -2,8 +2,8 @@
 
 # -- Project information
 
-project = 'fs2od'
-copyright = '2022, Masaryk University'
+project = 'onedata4sci'
+copyright = '2023, Masaryk University'
 author = 'Tomáš Svoboda, Aleš Křenek'
 
 release = '0.1'

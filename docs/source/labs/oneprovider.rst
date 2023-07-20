@@ -1,10 +1,15 @@
 Deployment of Oneprovider
 =========================
-There are several possibilities how to install and deploy Oneprovider service. All options you can find in documentation of Onedata (https://onedata.org/#/home/documentation). In this tutorial we describe deployment of Onedata service using Docker.
+There are several possibilities how to install and deploy Oneprovider service. All options you can find in documentation of Onedata (https://onedata.org/#/home/documentation/stable/doc/administering_onedata/oneprovider_tutorial.html). In this tutorial we describe simple deployment of Onedata service using Docker.
 
 Requirements
 ------------
-Requirements to run Oneprovider are described in official documentation as shown in the table. We recommend use Optimal setting. In following text there is described One provider deployment for usage of up to 100 users, for more sophisticated deployment please see Onedata documentation (https://onedata.org/#/home/documentation/stable/doc/administering_onedata/oneprovider_tutorial.html). 
+
+.. note::
+
+   Oneprovider is a component of Onedata system. To use Onedata you have to use exisiting central component Onezone or run own on-premise.
+
+HW and SW requirements from the official documentation are shown in following table. For testing is sufficient to run Oneprovider on node with minimal requirements. 
 
 .. csv-table:: Requirements of Oneprovider
    :file: ../tables/oneprovider_requirements.csv
@@ -18,17 +23,14 @@ Prepare environment for containers running
 At first is needed to install Docker subsystem. Installation steps depends on your operating system. Installation instruction you can find at official documentation (https://docs.docker.com/get-docker). After installation may be needed to add your user to group which has access to Docker. 
 
 .. code:: bash
-
    # create group docker (might not be necessary)
    sudo groupadd docker
    # add user defined in variable $USER to group docker
    sudo usermod -aG docker $USER
 
-Next you need to get tool Docker compose. Steps for your architecture are described at https://docs.docker.com/compose/install
-
 Prepare environment for Oneprovider
 -----------------------------------
-Following script-like text was created from Onedata documentation. Go through the script command by command and execute commands that you see are appropriate for your case. 
+Following script was created from Onedata documentation. It is recommended to set up the host environment as is described in the script. But no all changes of the predifined variables are necessary. For testing or running Oneprovider with low demands you can skip the script. 
 
 .. code:: bash
 
@@ -77,18 +79,18 @@ Following script-like text was created from Onedata documentation. Go through th
 
 Installation of Oneprovider
 -----------------------------------
-Prepare following directory structure where Oneprovider container stores its configuration and persistent data. Of course, you can choose another name for the base folder. In this example is used folder ``/opt/onedata/datahub/``. This directory will contain important operational data for Oneprovider. Whole this folder must be  backed up with appropriate tools and strategies used at the site.
+Prepare following directory structure where Oneprovider container stores its configuration and persistent data. Of course, you can choose another name for the base folder. In this example is used folder `/opt/onedata/datahub/oneprovider`. Folder `datahub` refers to the name of Onezone service. This directory will contain important operational data (metadata) of Oneprovider. The folder has to be backed up with appropriate tools and strategies used at the site. Lost data from these folders can lead to lost data in Onedata system. 
 
 .. code:: bash
 
-   # folder for configuration and persistent data of Oneprovider
+   # folder for configuration and persistent (meta)data of Oneprovider
    sudo mkdir -p /opt/onedata/datahub/oneprovider
    sudo mkdir /opt/onedata/datahub/oneprovider/cacerts
    sudo mkdir /opt/onedata/datahub/oneprovider/persistence
    # create a folder where data itself can be stored or use an existing
-   sudo mkdir -p /var/onedata/storage
+   sudo mkdir -p /var/onedata/storage/datahub/oneprovider
 
-Chdir to newly created directory.
+Go to the created directory.
 
 .. code:: bash
 
@@ -103,7 +105,7 @@ Download text file with configuration of Oneprovider container (``docker-compose
    services:
       oneprovider:
          # Oneprovider Docker image version
-         image: onedata/oneprovider:20.02.17
+         image: onedata/oneprovider:21.02.02
          # Hostname should be the domain name by which is the Oneprovider accesible from the Internet
          # hostname: ip-147-251-21-116.flt.cloud.muni.cz
          # Optional, in case Docker containers have no DNS access

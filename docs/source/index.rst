@@ -1,7 +1,7 @@
-CryoEM data cloudification
+onedata4sci
 ==========================
 
-**CryoEM data cloudification** system should provide easy way to make data produced by Cryogenic electron microscopy available to scientist. It supports whole process beginning from store produced data from CryoEM device, its publishing according to required access policy and its archiving in permanent storage. 
+**Onedata4sci** system should provide easy way to make data produced by experimental devices like Cryogenic electron microscopy available to scientist. It supports whole process beginning from store produced data from CryoEM device, its publishing according to required access policy and its archiving in permanent storage. 
 
 
 .. seealso::
