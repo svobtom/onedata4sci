@@ -9,4 +9,5 @@ For build the docs on your own computer change to the directory with ``Makefile`
 For building you need:
 
  pip3 install -U Sphinx
+
  pip3 install -U sphinx-rtd-theme
