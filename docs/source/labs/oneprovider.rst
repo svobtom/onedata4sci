@@ -310,12 +310,12 @@ Then download the new image using
 
 .. code:: bash
 
-   docker-compose -f docker-compose.yml pull
+   docker compose -f docker-compose.yml pull
 
 Remember that during the update process, the Oneprovider is unavailable to accept user requests. The update can be performed using
 
 .. code:: bash
 
-   docker-compose -f docker-compose.yml up -d --no-recreate
+   docker compose -f docker-compose.yml up -d --no-recreate
 
 After the update, check if all services are running correctly.
