@@ -63,6 +63,7 @@ Documentation for laboratory (core facility) staff.
 
    labs/oneprovider
    labs/fs2od
+   labs/messaging
    labs/archiving_expiring
    labs/performance
    labs/metadata
