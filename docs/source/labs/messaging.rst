@@ -38,6 +38,3 @@ Configuration can be found under sections ``messaging->credentials->email``
     -  ``ANY`` - this is not recommended, but some servers requires it, this is the communication-long unencrypted connection which can be eavesdropped
 - ``messageSender`` - The value in the format "Name Surname <user\@mail.tld>" or the plain email address. All the emails will be send with the sender set to this value. It is important to think about this value as some spam filters block addresses such as "noreply\@mail.tld" or similar
 
-
- (not recommended, but some servers requires that)
-
