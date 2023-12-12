@@ -1,4 +1,4 @@
-fs2od utility
+``fs2od`` utility
 =============
 
 ``fs2od`` (filesystem to Onedata) software is a separate part of the system, simplifying interaction with the Onedata system. This software is packed into a Docker container by default. It can take a list of directories that should be uploaded to the cloud, check them periodically, and import them into the Onedata system. Each subdirectory of the specified directory represents a separate dataset. For each such dataset, the Onedata space will be created.
@@ -71,7 +71,7 @@ The ``fs2od`` application can be tuned to maximum user satisfaction using the co
 Additional documentation, however, can help in some situations. There are some of the keys:
 
 - ``watchedDirectories`` - List of directories which should be monitored. The values should be the same as the mapping values in `docker-compose.yaml`. This key allows to use regex as in UNIX-like operating system. More examples in exemplary `config.yaml`.
-- ``metadataFiles`` - List of file names which should be checked when intending to check for the new dataset. If any of theese filenames is found, the new dataset will be created. This is also the filename where dataset access info will be stored unless ``fs2odMetadataFile->storeAccessInfo`` is set to ``True``
+- ``metadataFiles`` - List of file names which should be checked when intending to check for the new dataset (definition metadata file). If any of these filenames is found, the new dataset will be created. This is also the filename where dataset access info will be stored unless ``fs2odMetadataFile->storeAccessInfo`` is set to ``True``
 - ``fs2odMetadataFile`` - if ``enabled`` is ``True``, the email support, removing provides and more features will be enabled, and the internal metadata will be stored in. If this is a thing and ``storeAccessInfo`` is set to ``True``, access info formerly stored into ``metadataFiles`` will be stored to file given by ``filename``
 - ``importMetadata`` - if set to ``True`` all metadata found in the metadata file (found as using one of the ``metadataFiles`` entry) will be JSONized and stored into Onedata built-in metadata storage for each dataset (dataset fileId). This metadata will be updated also when metadata file updated. This does not store ``fs2od`` access info
 - ``restAccess`` - contains information about connections and authentication against Onezone/provider/panel. Filling out ``onezone`` and at least one item in ``oneproviders`` is mandatory. Exactly one item in ``oneproviders`` must have key ``isPrimary`` set to ``True`` (primary Oneprovider), others (which have ``isPrimary: False``) must have at least one storage id provided in ``storageIds``. This column is ignored in primary Oneprovider.
