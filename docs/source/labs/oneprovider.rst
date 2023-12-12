@@ -1,4 +1,4 @@
-Deployment of Oneprovider
+Oneprovider Deployment
 =========================
 There are several possibilities how to install and deploy Oneprovider service. All options can be found in the documentation of Onedata (https://onedata.org/#/home/documentation/stable/doc/administering_onedata/oneprovider_tutorial.html). In this tutorial we describe simple deployment of Onedata service using Docker.
 
