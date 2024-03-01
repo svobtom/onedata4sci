@@ -1,15 +1,15 @@
-Deployment of Oneprovider
+Oneprovider Deployment
 =========================
-There are several possibilities how to install and deploy Oneprovider service. All options you can find in documentation of Onedata (https://onedata.org/#/home/documentation/stable/doc/administering_onedata/oneprovider_tutorial.html). In this tutorial we describe simple deployment of Onedata service using Docker.
+There are several possibilities how to install and deploy Oneprovider service. All options can be found in the documentation of Onedata (https://onedata.org/#/home/documentation/stable/doc/administering_onedata/oneprovider_tutorial.html). In this tutorial we describe simple deployment of Onedata service using Docker.
 
 Requirements
 ------------
 
 .. note::
 
-   Oneprovider is a component of Onedata system. To use Onedata you have to use exisiting central component Onezone or run own on-premise.
+   Oneprovider is a component of Onedata system. To use Onedata you have to use exisiting central component Onezone or run own on-premise (this Onezone must have an external IP address or/and a hostname).
 
-HW and SW requirements from the official documentation are shown in following table. For testing is sufficient to run Oneprovider on node with minimal requirements. 
+HW and SW requirements from the official documentation are shown in following table. For testing it is sufficient to run Oneprovider on node with minimal requirements.
 
 .. csv-table:: Requirements of Oneprovider
    :file: ../tables/oneprovider_requirements.csv
@@ -18,19 +18,20 @@ HW and SW requirements from the official documentation are shown in following ta
 
 (https://onedata.org/#/home/documentation/stable/doc/system_requirements.html)
 
-Prepare environment for containers running
+Environment preparation for containers running
 ------------------------------------------
-At first is needed to install Docker subsystem. Installation steps depends on your operating system. Installation instruction you can find at official documentation (https://docs.docker.com/get-docker). After installation may be needed to add your user to group which has access to Docker. 
+At first, it is needed to install Docker subsystem. Installation steps depend on the operating system. Installation instructions can be found in the official documentation (https://docs.docker.com/get-docker). After the installation, an actual user may need to be added to a Docker group.
 
 .. code:: bash
+
    # create group docker (might not be necessary)
    sudo groupadd docker
    # add user defined in variable $USER to group docker
    sudo usermod -aG docker $USER
 
-Prepare environment for Oneprovider
+Environment preparation for Oneprovider
 -----------------------------------
-Following script was created from Onedata documentation. It is recommended to set up the host environment as is described in the script. But no all changes of the predifined variables are necessary. For testing or running Oneprovider with low demands you can skip the script. 
+The following script was created based on the Onedata documentation. Setting up the host environment as described in the script is recommended. However, changing some predefined variables is optional as they do not impact our purposes. The script may be skipped for testing or running Oneprovider with low demands.
 
 .. code:: bash
 
@@ -79,13 +80,13 @@ Following script was created from Onedata documentation. It is recommended to se
 
 Installation of Oneprovider
 -----------------------------------
-Prepare following directory structure where Oneprovider container stores its configuration and persistent data. Of course, you can choose another name for the base folder. In this example is used folder `/opt/onedata/datahub/oneprovider`. Folder `datahub` refers to the name of Onezone service. This directory will contain important operational data (metadata) of Oneprovider. The folder has to be backed up with appropriate tools and strategies used at the site. Lost data from these folders can lead to lost data in Onedata system. 
+Prepare the following directory structure where the Oneprovider container stores its configuration and persistent data. Of course, different names can be chosen for the base folder. This example uses folder `/opt/onedata/datahub/oneprovider`, where the folder `datahub` refers to the name of the Onezone service. The directory will contain important operational data (metadata) of Oneprovider. In order to provide continuous service, the folder has to be backed up with appropriate tools and strategies used at the site. Data loss from these folders can lead to data loss inside the Onedata system.
 
 .. code:: bash
 
    # folder for configuration and persistent (meta)data of Oneprovider
    sudo mkdir -p /opt/onedata/datahub/oneprovider
-   sudo mkdir /opt/onedata/datahub/oneprovider/cacerts
+   sudo mkdir /opt/onedata/datahub/oneprovider/certs
    sudo mkdir /opt/onedata/datahub/oneprovider/persistence
    # create a folder where data itself can be stored or use an existing
    sudo mkdir -p /var/onedata/storage/datahub/oneprovider
@@ -96,7 +97,7 @@ Go to the created directory.
 
    cd /opt/onedata/datahub/oneprovider
 
-Download text file with configuration of Oneprovider container (``docker-compose.yml``).
+Download the text file with the configuration of Oneprovider container (``docker-compose.yml``).
 
 .. code:: yaml
 
@@ -105,7 +106,7 @@ Download text file with configuration of Oneprovider container (``docker-compose
    services:
       oneprovider:
          # Oneprovider Docker image version
-         image: onedata/oneprovider:21.02.02
+         image: onedata/oneprovider:21.02.3
          # Hostname should be the domain name by which is the Oneprovider accesible from the Internet
          # hostname: ip-147-251-21-116.flt.cloud.muni.cz
          # Optional, in case Docker containers have no DNS access
@@ -134,101 +135,103 @@ Download text file with configuration of Oneprovider container (``docker-compose
             # Additional, trusted CA certificates (all files from this directory will be added)
             - "/opt/onedata/datahub/oneprovider/cacerts:/etc/op_worker/cacerts"
 
-Open the file in a text editor. You can edit desired version of Oneprovider. You can check the newest version of Oneprovider image on the Docker Hub (https://hub.docker.com/r/onedata/oneprovider/tags). Please keep in mind that you cannot use newer version of Oneprovider than is a version of used Onezone. For detailed information about compatibility see https://onedata.org/#/home/versions. You can edit location of folders with persistent data on the host node. You have to fill in domain name of new Oneprovider. 
+Open the file in a text editor. Changing the value of `image:` changes a desired version of Oneprovider. More information about the latest version is available in the Oneprovider image on the Docker Hub (https://hub.docker.com/r/onedata/oneprovider/tags).
 
-The Oneprovider should be accessible by this name from the Internet and from the local host.  Check the hostname of the physical node, e.g. by command
+.. note::
+
+    Please remember that the version of the Oneprovider must be at least as high as the version of the used Onezone. For detailed information about the compatibility constraints, see https://onedata.org/#/home/versions.
+
+The location of the folders can be changed by editing the paths in the `volumes:` section. The domain name of the new Oneprovider must be filled out before the first Oneprovider run.
+
+The Oneprovider should be accessible with this name from the Internet and the local host.  Check the hostname of the physical node using
 
 .. code:: bash
 
    hostname -f
 
-and fill to the file value of displayed hostname. 
+and fill it in to the `hostname:` value.
 
 .. code:: yaml
 
    hostname: example.domain.eu
 
-If you are behind a NAT, the hostname command can return incorrect output. You have to check your real domain name. In this case you should add following line to ``/etc/hosts`` file. The line ensures that the selected domain address will be resolved to the local node. 
+It is crucial to discover machine's actual domain name. If the machine is behind a NAT, the hostname command can return incorrect output. In this case, the following line should be added to ``/etc/hosts`` file. The line ensures that the selected domain address will be resolved to the local node.
 
 .. code::
 
    127.0.0.1 example.domain.eu
 
-Download Oneprovider docker image from Docker Hub , it can take several minutes. 
+Download the Oneprovider Docker image from Docker Hub, it can take several minutes.
 
 .. code:: bash
 
-   docker-compose pull
+   docker compose pull
 
 Running the container
 
 .. warning::
 
-   Following command open web server on node where the container is run, which listen on the port 9433. Is important to block access to this port by some else. 
+   The following command opens a web server on a node where the container runs and then listens on port 9433. It is important to block access to this port by someone else.
 
 .. code:: bash
 
-   docker-compose up -d --no-recreate
+   docker compose up -d --no-recreate
 
-In docker-compose file there is specified restart policy to run the container ``unless-stopped``. So the container run also after reboot of the host (in case of  docker daemon is run automatically after reboot – this is a default behaviour). 
+In the docker compose file, the restart policy is specified to run the container ``unless-stopped``. Due to this policy, the container will also run after the host reboot (only if the docker daemon runs automatically after reboot – this is a default behaviour).
 
-You can always see live output of Oneprovider container by command
+How to print live output of the Oneprovider can be found `here <#monitor-of-oneprovider-container>`_.
 
-.. code:: bash
-
-   docker-compose logs --follow --timestamps --tail 100
-
-The first start-up of the container can last for a few minutes. The process is done when you see in the log output the message
+The first start-up of the container can last for a few minutes. The process is finished after the log message
 Cluster initialized successfully
 
 Configuration of Oneprovider
 -----------------------------------
-In following steps, the setup of Oneprovider will be done.
-Access by web browser URL https://example.domain.eu:9443. Beginning of Onepanel installation is done through web browser with self-signed certificate. Your browser will alert you about this, but this is expected. During this process valid Let’s Encrypt certificate will be generated. This certificate will be used for further communication. You can also use your own certificate. 
+The setup of the Oneprovider is done in the following steps.
+Access the URL https://example.domain.eu:9443 using a web browser. The first part of the Onepanel installation is performed through the browser with a self-signed certificate. The browser alerts about this; however, it is expected. During this process, a valid Let’s Encrypt certificate is generated, and it will be used for further communication. There is also a possibility to use own certificate.
 
 .. image:: ../images/02_OP_setup.png
    :width: 500
    :align: center
    :alt: Beginning of Oneprovider setup
 
-Choose ``Create a new cluster`` and on the following screen click on the button ``Create Oneprovider cluster``. 
-
-.. image:: ../images/03_OP_setup.png
-   :width: 500
-   :align: center
-   :alt: Oneprovider welcome page
-
-Fill in an emergency passphrase. Save the passphrase to a safe place. In can be used in situation when you lost access to Oneprovider through external identity provider. 
+Choose ``Create a new cluster`` and fill in an emergency passphrase. Save the passphrase to a safe place. It can be used in the situation when access to the Oneprovider through the external identity provider is lost.
 
 .. image:: ../images/04_OP_passphraze.png
    :width: 500
    :align: center
    :alt: Setup of passphraze
 
-Because you install a new cluster select first four possibilities (Database, Cluster Worker, Cluster Manager, Primary Cluster Manager). On the contrary, leave the Ceph option unchecked. After this you can click on the ``Deploy`` button. 
+On the following screen, click the ``Create Oneprovider cluster`` button.
+
+.. image:: ../images/03_OP_setup.png
+   :width: 500
+   :align: center
+   :alt: Oneprovider welcome page
+
+Because a new cluster is being installed, select the first four possibilities (Database, Cluster Worker, Cluster Manager, Primary Cluster Manager). On the contrary, leave the Ceph option unchecked. After this, click the ``Deploy`` button.
 
 .. image:: ../images/05_OP_cluster_setup.png
    :width: 500
    :align: center
    :alt: Cluster setup
 
-It take some time. Afer the cluster is deployed, the web interface prompts for a registration token: 
+It takes some time. Afer the cluster is deployed, the web interface prompts for a registration token:
 
 .. image:: ../images/06_OP_registration.png
    :width: 500
    :align: center
    :alt: Registration Oneprovider to Onezone
 
-Now you have to register your new deployed Oneprovider to Onezone service . In this manual we will use well established Onezone instance ``EGI DATAHUB`` located on URL https://datahub.egi.eu. Registration process is described in the browser or bellow. 
+Now, the newly deployed Oneprovider must be registered within the Onezone service. In this manual, we use a well-established Onezone instance ``EGI DATAHUB`` located at https://datahub.egi.eu. The registration process is described in the browser or below.
 
-In a new browser window or pane open URL https://datahub.egi.eu sign-in with your EGI identity through EGI Check-in (blue icon). You can choose from various identity providers. You can use your identity from your institution (recommended) if your institution is on the list. You can also use your social identity (Google account, …). 
+In a new browser window or panel, open https://datahub.egi.eu, then sign in with the EGI identity through EGI Check-in (blue icon). The identity can be chosen from various identity providers; the identity from the home institution, if on the list, is recommended. Also, a social identity such as Google, Facebook, GitHub and others is possible.
 
 .. image:: ../images/07__OZ_sign_in.png
    :width: 500
    :align: center
    :alt: Onezone sign in page
 
-After successful login you will see Onezone web interface. Now you have to add newly developed cluster to your user account.  To add a new cluster go to:
+After a successful login, the Onezone web interface pops up. Now, a newly created cluster is added to a user account.  To do this, go to:
 
 .. centered::
    CLUSTERS > Plus sign (Adding a new cluster)
@@ -238,67 +241,81 @@ After successful login you will see Onezone web interface. Now you have to add n
    :align: center
    :alt: Cluster management in Onezone
 
-Copy token from Onezone web interface to Oneprovider. 
+Copy a token from the Onezone web interface to the Oneprovider.
 
 .. image:: ../images/09_OP_registration.png
    :width: 500
    :align: center
    :alt: 
 
-Fill in basic information about Oneprovider. Provider name will see users e.g. in web interface. Subdomain will be used e.g by users in parameters of Oneclient. 
+Fill in the basic information about the Oneprovider. Provider name is public information; users will see it, e.g. in the web interface. The selected subdomain will be used, e.g., by users in the parameters for the Oneclient.
 
 .. image:: ../images/10_OP_registration.png
    :width: 500
    :align: center
    :alt: Registering Oneprovider
 
-Check IP address of Oneprovider. Prefilled value should be the right value. 
+Check the IP address of Oneprovider. The prefilled value should be the correct value.
 
 .. image:: ../images/11_IP_address.png
    :width: 500
    :align: center
    :alt: Cluster IP address
 
-After DNS check  (it may take a while)  you can request for Let’s Encrypt certificate. If necessary, you can use certificate from another authority. 
+After a DNS check (it may take a while), the Let’s Encrypt certificate can be requested. If needed, the Oneprovider can also use the certificate from a different authority.
 
 .. image:: ../images/12_certificate.png
    :width: 500
    :align: center
    :alt: Setup certificate
 
-If you have done previous steps, your Oneprovider is set up. 
+Now, the Oneprovider is set up.
 
-Monitor of Oneprovider container
+Adding the storages
 -----------------------------------
-You can see the live log of Oneprovider:
+After the successful registration and configuration of the Oneprovider, it is necessary to add the storage for storing the data.
+
+This example shows how to add a new POSIX storage. The storage creation is triggered after the first Oneprovider configuration. However, these storages can be later added and removed in the Oneprovider web interface. It is important for a mount point not to end with a slash.
+
+.. image:: ../images/16_new_storage_POSIX.png
+   :width: 500
+   :align: center
+   :alt: Adding a new storage
+
+Monitoring Oneprovider container
+-----------------------------------
+You can see the live log of the Oneprovider:
 
 .. code:: bash
 
-   docker-compose -f docker-compose.yml logs --follow
+   docker compose -f docker-compose.yml logs --follow --timestamps
 
-The system resources used by Oneprovider and other containers can be monitored by command:
-docker stats
+The system resources used by the Oneprovider and other containers can be monitored using
 
-Update Oneprovider to a new version
+.. code:: bash
+
+   docker stats
+
+Updating Oneprovider to a newer version
 -----------------------------------
-Is strongly recommended to keep Oneprovider up to date. You can check existence of a new version of Oneprovider image on Docker hub. The condition for installing a new version of Oneprovider is that Onezone have to be at least in the same version ad Oneprovider. The Onezone version you can see in the left bottom corner of its web interface. If the version of Onezone is less that desired new version of Oneprovider, it is needed first update Onezone. 
-To update Oneprovider edit the version number in ``docker-compose.yml``:
+It is strongly recommended to keep the Oneprovider up to date. Docker Hub allows checking the availability of a new version of the Oneprovider image. The condition for installing a new version of Oneprovider is that the Onezone has to be at least the same version as the Oneprovider. The Onezone version can be checked in the bottom left corner of its web interface. If the version of Onezone is lower than the desired new version of Oneprovider, the Onezone needs to be updated first.
+To update the Oneprovider, edit the version number in ``docker-compose.yml``:
 
 .. code:: 
 
    # Oneprovider Docker image version
    image: onedata/oneprovider:20.02.13
 
-Then download the new image by command:
+Then download the new image using
 
 .. code:: bash
 
-   docker-compose -f docker-compose.yml pull
+   docker compose -f docker-compose.yml pull
 
-Keep in the mind that for the duration of update process the Oneprovider is not available for user requests. The update process you can run by command:
+Remember that during the update process, the Oneprovider is unavailable to accept user requests. The update can be performed using
 
 .. code:: bash
 
-   docker-compose -f docker-compose.yml up -d --no-recreate
+   docker compose -f docker-compose.yml up -d --no-recreate
 
-After update check if all provided services are all right. 
+After the update, check if all services are running correctly.
